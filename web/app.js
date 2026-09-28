@@ -3,10 +3,11 @@ const composer = document.getElementById("composer");
 const input = document.getElementById("messageInput");
 
 const API_BASE_URL =
-  window.SOL_API_BASE_URL ||
-  (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
-    ? "http://localhost:8080"
-    : "https://api.guigamusic.com.br");
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1" ||
+  window.location.hostname === "0.0.0.0"
+    ? "http://127.0.0.1:8080"
+    : "https://api.guigamusic.com.br";
 
 const labels = {
   sol: "Sol AI ♛",
