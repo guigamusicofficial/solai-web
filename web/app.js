@@ -1,4 +1,4 @@
-﻿const messages = document.getElementById("messages");
+const messages = document.getElementById("messages");
 const composer = document.getElementById("composer");
 const input = document.getElementById("messageInput");
 
@@ -120,7 +120,6 @@ async function sendMessage(text) {
   }
 }
 
-
 /* =========================================================
    ENVIO DA MENSAGEM
    ========================================================= */
@@ -129,7 +128,6 @@ composer.addEventListener("submit", (event) => {
   event.preventDefault();
   sendMessage(input.value);
 });
-
 
 /* Enter envia a mensagem.
    Shift + Enter mantém o comportamento normal. */
@@ -140,7 +138,6 @@ input.addEventListener("keydown", (event) => {
     composer.requestSubmit();
   }
 });
-
 
 /* =========================================================
    SELEÇÃO DAS PERSONAGENS
@@ -169,7 +166,6 @@ document.querySelectorAll(".companion, .right-card").forEach(card => {
 
 });
 
-
 /* =========================================================
    NOVA CONVERSA
    ========================================================= */
@@ -192,7 +188,6 @@ if (newChat) {
 
 }
 
-
 /* =========================================================
    MENU LATERAL
    ========================================================= */
@@ -209,7 +204,6 @@ document.querySelectorAll(".nav-item").forEach(item => {
   });
 
 });
-
 
 /* =========================================================
    FOCO AUTOMÁTICO
