@@ -1,17 +1,36 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SOL AI ♥</title>
 <link rel="stylesheet" href="style.css">
-
-<script>
-  window.SOL_API_BASE_URL = "https://api.guigamusic.com.br";
-</script>
 </head>
 <body>
-<div class="app-shell">
+<section class="auth-screen" id="authGate" aria-labelledby="authTitle">
+  <div class="auth-panel">
+    <div class="auth-brand">SOL AI <span>♥</span></div>
+    <h1 id="authTitle">Entre na sua conta</h1>
+    <div class="auth-mode-switch" role="group" aria-label="Acesso à conta">
+      <button class="auth-mode active" type="button" data-auth-mode="login" aria-pressed="true">Entrar</button>
+      <button class="auth-mode" type="button" data-auth-mode="register" aria-pressed="false">Criar conta</button>
+    </div>
+    <form id="authForm" class="auth-form">
+      <label for="authEmail">E-mail</label>
+      <input id="authEmail" name="email" type="email" autocomplete="username" maxlength="254" required>
+      <label for="authPassword">Senha</label>
+      <input id="authPassword" name="password" type="password" autocomplete="current-password" minlength="12" maxlength="256" required>
+      <label class="adult-confirm" id="adultConfirmRow" hidden>
+        <input id="adultConfirmed" name="adult_confirmed" type="checkbox">
+        <span>Confirmo que tenho 18 anos ou mais.</span>
+      </label>
+      <p class="auth-status" id="authStatus" role="status" aria-live="polite"></p>
+      <button class="auth-submit" id="authSubmit" type="submit">Entrar</button>
+    </form>
+  </div>
+</section>
+
+<div class="app-shell" id="appShell" hidden>
 
   <aside class="sidebar">
     <div class="brand">
@@ -38,7 +57,7 @@
         <img src="/web/assets/luna.png"><span><b>Luna</b><small>☾ A misteriosa</small><em>● Online</em></span>
       </button>
       <button class="companion" data-character="maya">
-        <img src="/web/assets/maya.png"><span><b>Maya</b><small>☀ A provocante</small><em>● Online</em></span>
+        <img src="/web/assets/maya.png"><span><b>Maia</b><small>☀ A provocante</small><em>● Online</em></span>
       </button>
       <button class="companion" data-character="valentina">
         <img src="/web/assets/valentina.png"><span><b>Valentina ♥</b><small>A intensa</small><em>● Online</em></span>
@@ -50,7 +69,8 @@
 
     <div class="user-card">
       <div class="user-avatar">G</div>
-      <div><b>Guiga</b><small>● Online</small></div>
+      <div class="user-details"><b id="accountEmail">Conta</b><small>● Conectado</small></div>
+      <button class="logout-button" id="logoutButton" type="button" title="Sair da conta">Sair</button>
     </div>
   </aside>
 
@@ -129,7 +149,7 @@
     <div class="right-cards">
       <button class="right-card active" data-character="sol"><img src="assets/sol_thumb.png"><div><b>Sol ♛</b><span>A dona</span><em>● Online</em><strong>▣ &nbsp; Conversar</strong></div></button>
       <button class="right-card" data-character="luna"><img src="assets/luna.png"><div><b>Luna ☾</b><span>A misteriosa</span><em>● Online</em><strong>▣ &nbsp; Conversar</strong></div></button>
-      <button class="right-card" data-character="maya"><img src="assets/maya.png"><div><b>Maya ☀</b><span>A provocante</span><em>● Online</em><strong>▣ &nbsp; Conversar</strong></div></button>
+      <button class="right-card" data-character="maya"><img src="assets/maya.png"><div><b>Maia ☀</b><span>A provocante</span><em>● Online</em><strong>▣ &nbsp; Conversar</strong></div></button>
       <button class="right-card" data-character="valentina"><img src="assets/valentina.png"><div><b>Valentina ♥</b><span>A intensa</span><em>● Online</em><strong>▣ &nbsp; Conversar</strong></div></button>
       <button class="right-card" data-character="jade"><img class="jade-mini" src="assets/jade.png" alt="Jade"><div><b>Jade</b><span>A elegante</span><em>● Online</em><strong>▣ &nbsp; Conversar</strong></div></button>
     </div>
@@ -138,3 +158,5 @@
 <script src="app.js"></script>
 </body>
 </html>
+
+

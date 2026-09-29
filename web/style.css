@@ -191,7 +191,7 @@
 
 .jade-mini{border:0!important;outline:0!important;box-shadow:none!important;object-fit:cover!important;} .companion[data-character="jade"] .jade-mini{border:1px solid rgba(190,70,255,.65)!important;box-shadow:none!important;} .profile-thumbs .jade-mini{border:0!important;outline:0!important;box-shadow:none!important;}
 
-/* JADE — corrigir somente as miniaturas */
+/* JADE ï¿½ corrigir somente as miniaturas */
 .companion[data-character="jade"] img,
 .profile-thumbs img.jade-mini {
     border: 0 !important;
@@ -202,7 +202,7 @@
     display: block !important;
 }
 
-/* mantém a moldura do componente, não da imagem */
+/* mantï¿½m a moldura do componente, nï¿½o da imagem */
 .companion[data-character="jade"] {
     overflow: hidden;
 }
@@ -212,7 +212,7 @@
 }
 
 /* =========================================================
-   SOL — remover somente a borda duplicada da foto
+   SOL ï¿½ remover somente a borda duplicada da foto
    A moldura continua sendo a do componente.
    ========================================================= */
 
@@ -227,7 +227,7 @@
     padding: 0 !important;
 }
 
-/* Não remover a moldura externa do cartão da Sol */
+/* Nï¿½o remover a moldura externa do cartï¿½o da Sol */
 .companion[data-character="sol"] {
     border-width: 1px !important;
 }
@@ -238,7 +238,7 @@
 }
 
 /* =========================================================
-   CARROSSEL — PADRÃO ÚNICO PARA TODAS AS PERSONAGENS
+   CARROSSEL ï¿½ PADRï¿½O ï¿½NICO PARA TODAS AS PERSONAGENS
    ========================================================= */
 
 .profile-thumbs {
@@ -253,7 +253,7 @@
     object-fit: cover !important;
     display: block !important;
 
-    /* uma única borda, igual às fotos do meio */
+    /* uma ï¿½nica borda, igual ï¿½s fotos do meio */
     border: 1px solid #a62cff !important;
     outline: none !important;
     box-shadow: none !important;
@@ -262,7 +262,7 @@
     padding: 0 !important;
 }
 
-/* Remove as regras especiais que havíamos criado para Sol/Jade */
+/* Remove as regras especiais que havï¿½amos criado para Sol/Jade */
 .profile-thumbs img.jade-mini,
 .profile-thumbs img[src*="jade.png"],
 .profile-thumbs img[src*="sol_thumb"] {
@@ -273,14 +273,14 @@
     padding: 0 !important;
 }
 
-/* SOL — sem borda no carrossel */
+/* SOL ï¿½ sem borda no carrossel */
 .profile-thumbs img[src*="sol_thumb"] {
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
 }
 
-/* SOL THUMB — SEM BORDA */
+/* SOL THUMB ï¿½ SEM BORDA */
 .profile-thumbs img[src*="sol_thumb"] {
     border: 0 !important;
     outline: 0 !important;
@@ -289,7 +289,7 @@
 }
 
 /* =========================================================
-   CARROSSEL — SOL IGUAL ÀS OUTRAS PERSONAGENS
+   CARROSSEL ï¿½ SOL IGUAL ï¿½S OUTRAS PERSONAGENS
    ========================================================= */
 
 .profile-thumbs img[src*="sol_thumb"] {
@@ -306,7 +306,7 @@
     border-radius: 8px !important;
 }
 
-/* SOL — mesma borda das outras personagens */
+/* SOL ï¿½ mesma borda das outras personagens */
 .companion[data-character="sol"] img[src*="sol_thumb"],
 .profile-thumbs img[src*="sol_thumb"] {
     border: 1px solid #a62cff !important;
@@ -317,7 +317,7 @@
 }
 
 /* =========================================================
-   BOTÃO ENVIAR — DENTRO DA CAIXA DO CHAT, À DIREITA
+   BOTï¿½O ENVIAR ï¿½ DENTRO DA CAIXA DO CHAT, ï¿½ DIREITA
    ========================================================= */
 
 .composer {
@@ -341,7 +341,7 @@
 
 
 /* =========================================================
-   CAMPO DE MENSAGEM — OCUPAR TODA A LARGURA
+   CAMPO DE MENSAGEM ï¿½ OCUPAR TODA A LARGURA
    ========================================================= */
 
 .composer {
@@ -356,7 +356,7 @@
     margin: 0 !important;
 }
 
-/* botão permanece sobre a área direita */
+/* botï¿½o permanece sobre a ï¿½rea direita */
 .composer .send {
     position: absolute !important;
     right: 12px !important;
@@ -366,7 +366,7 @@
 }
 
 /* =========================================================
-   ÁREA DE DIGITAÇÃO — LARGURA ATÉ O BOTÃO ENVIAR
+   ï¿½REA DE DIGITAï¿½ï¿½O ï¿½ LARGURA ATï¿½ O BOTï¿½O ENVIAR
    ========================================================= */
 
 .composer {
@@ -385,7 +385,7 @@
     width: 100% !important;
 }
 
-/* campo ocupa TODO o espaço até perto da seta */
+/* campo ocupa TODO o espaï¿½o atï¿½ perto da seta */
 .composer #messageInput {
     grid-column: 1 !important;
     grid-row: 2 !important;
@@ -396,7 +396,7 @@
     padding-right: 10px !important;
 }
 
-/* botão fica na extremidade direita */
+/* botï¿½o fica na extremidade direita */
 .composer .send {
     grid-column: 2 !important;
     grid-row: 2 !important;
@@ -412,7 +412,7 @@
 
 
 /* =========================================================
-   BOTÕES DO COMPOSER — ESPAÇAMENTO CORRETO
+   BOTï¿½ES DO COMPOSER ï¿½ ESPAï¿½AMENTO CORRETO
    ========================================================= */
 
 .composer .composer-tools {
@@ -436,7 +436,7 @@
 
 
 /* =========================================================
-   BOTÕES DO COMPOSER — ESPAÇAMENTO CORRETO
+   BOTï¿½ES DO COMPOSER ï¿½ ESPAï¿½AMENTO CORRETO
    ========================================================= */
 
 .composer .composer-tools {
@@ -460,7 +460,7 @@
 
 
 /* =========================================================
-   COMPOSER — AJUSTE FINAL DOS BOTÕES
+   COMPOSER ï¿½ AJUSTE FINAL DOS BOTï¿½ES
    ========================================================= */
 
 .composer .composer-tools {
@@ -502,7 +502,7 @@
     box-sizing: border-box !important;
 }
 
-/* Mantém o campo de mensagem separado e espaçoso */
+/* Mantï¿½m o campo de mensagem separado e espaï¿½oso */
 .composer #messageInput {
     grid-column: 1 !important;
     grid-row: 2 !important;
@@ -514,7 +514,7 @@
     box-sizing: border-box !important;
 }
 
-/* Botão enviar permanece no lado direito */
+/* Botï¿½o enviar permanece no lado direito */
 .composer .send {
     grid-column: 2 !important;
     grid-row: 2 !important;
@@ -532,7 +532,7 @@
 }
 
 
-/* ===== CORREÇÃO DEFINITIVA DA BARRA DE FERRAMENTAS ===== */
+/* ===== CORREï¿½ï¿½O DEFINITIVA DA BARRA DE FERRAMENTAS ===== */
 
 .composer .composer-tools {
     grid-column: 1 / 3 !important;
@@ -587,7 +587,7 @@
     width: 100% !important;
 }
 
-/* Seta no espaço próprio à direita */
+/* Seta no espaï¿½o prï¿½prio ï¿½ direita */
 .composer .send {
     grid-column: 2 !important;
     grid-row: 2 !important;
@@ -639,5 +639,170 @@
 .messages {
     scrollbar-width: thin;
     scrollbar-color: #542064 transparent;
+}
+
+.app-shell[hidden],
+.auth-screen[hidden] {
+    display: none !important;
+}
+
+.auth-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: radial-gradient(circle at 50% 20%, #351341 0, #130b1b 42%, #07040c 100%);
+}
+
+.auth-panel {
+    width: min(100%, 430px);
+    padding: 34px;
+    border: 1px solid #57345f;
+    border-radius: 16px;
+    background: #0d0914;
+    box-shadow: 0 24px 80px #0009;
+}
+
+.auth-brand {
+    color: #ef9be9;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.auth-brand span {
+    color: #f000c8;
+}
+
+.auth-panel h1 {
+    margin: 20px 0;
+    font-size: 24px;
+    letter-spacing: 0;
+}
+
+.auth-mode-switch {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-bottom: 22px;
+    padding: 4px;
+    border: 1px solid #35243e;
+    border-radius: 10px;
+    background: #08060c;
+}
+
+.auth-mode {
+    min-height: 40px;
+    border-radius: 7px;
+    color: #d3c5d7;
+    background: transparent;
+}
+
+.auth-mode.active {
+    color: #fff;
+    background: #50116a;
+}
+
+.auth-form {
+    display: grid;
+    gap: 10px;
+}
+
+.auth-form > label:not(.adult-confirm) {
+    margin-top: 5px;
+    color: #e8dce9;
+    font-size: 14px;
+}
+
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 12px;
+    border: 1px solid #49324e;
+    border-radius: 8px;
+    outline: none;
+    color: #fff;
+    background: #08060c;
+}
+
+.auth-form input:focus {
+    border-color: #d34cdb;
+    box-shadow: 0 0 0 3px #d34cdb2b;
+}
+
+.adult-confirm {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 7px;
+    color: #e8dce9;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.adult-confirm[hidden] {
+    display: none;
+}
+
+.adult-confirm input {
+    margin-top: 3px;
+    accent-color: #c139cf;
+}
+
+.auth-status {
+    min-height: 20px;
+    margin: 4px 0 0;
+    color: #f2a6ae;
+    font-size: 13px;
+}
+
+.auth-submit {
+    min-height: 46px;
+    border-radius: 8px;
+    color: #fff;
+    background: linear-gradient(90deg, #67168a, #8e1ac0);
+    font-weight: 700;
+}
+
+.auth-submit:disabled {
+    cursor: wait;
+    opacity: .7;
+}
+
+.user-details {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.user-details b {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.logout-button {
+    margin-left: auto;
+    padding: 7px 9px;
+    border: 1px solid #48304e;
+    border-radius: 7px;
+    color: #eee6f3;
+    background: transparent;
+}
+
+.logout-button:hover {
+    background: #50116a;
+}
+
+@media (max-width: 520px) {
+    .auth-screen {
+        padding: 16px;
+    }
+
+    .auth-panel {
+        padding: 26px 22px;
+    }
 }
 
