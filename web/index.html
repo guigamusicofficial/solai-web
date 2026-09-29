@@ -1,162 +1,501 @@
-﻿<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SOL AI ♥</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<section class="auth-screen" id="authGate" aria-labelledby="authTitle">
-  <div class="auth-panel">
-    <div class="auth-brand">SOL AI <span>♥</span></div>
-    <h1 id="authTitle">Entre na sua conta</h1>
-    <div class="auth-mode-switch" role="group" aria-label="Acesso à conta">
-      <button class="auth-mode active" type="button" data-auth-mode="login" aria-pressed="true">Entrar</button>
-      <button class="auth-mode" type="button" data-auth-mode="register" aria-pressed="false">Criar conta</button>
-    </div>
-    <form id="authForm" class="auth-form">
-      <label for="authEmail">E-mail</label>
-      <input id="authEmail" name="email" type="email" autocomplete="username" maxlength="254" required>
-      <label for="authPassword">Senha</label>
-      <input id="authPassword" name="password" type="password" autocomplete="current-password" minlength="12" maxlength="256" required>
-      <label class="adult-confirm" id="adultConfirmRow" hidden>
-        <input id="adultConfirmed" name="adult_confirmed" type="checkbox">
-        <span>Confirmo que tenho 18 anos ou mais.</span>
-      </label>
-      <p class="auth-status" id="authStatus" role="status" aria-live="polite"></p>
-      <button class="auth-submit" id="authSubmit" type="submit">Entrar</button>
-    </form>
-  </div>
-</section>
+* {
+  box-sizing: border-box;
+}
 
-<div class="app-shell" id="appShell" hidden>
+html {
+  scroll-behavior: smooth;
+}
 
-  <aside class="sidebar">
-    <div class="brand">
-      <div class="brand-title">SOL AI <span>♥</span></div>
-      <div class="brand-sub">SUAS COMPANHEIRAS VIRTUAIS</div>
-    </div>
+:root {
+  --bg: #080912;
+  --bg-strong: #101525;
+  --panel: rgba(18, 24, 39, 0.9);
+  --panel-alt: rgba(23, 31, 52, 0.98);
+  --purple: #af74ff;
+  --purple-strong: #8c43f6;
+  --pink: #ff6ad5;
+  --rose: #ff8c94;
+  --text: #f7f5ff;
+  --muted: #b8bdd0;
+  --line: rgba(255, 255, 255, 0.08);
+  --success: #49d38a;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
 
-    <button class="new-chat" id="newChat">▣ <span>Nova Conversa</span></button>
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(174, 110, 255, 0.28), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(255, 106, 213, 0.18), transparent 35%),
+    var(--bg);
+  color: var(--text);
+}
 
-    <nav class="nav">
-      <button class="nav-item active" data-view="chat"><span>◷</span> Conversas</button>
-      <button class="nav-item" data-view="memory"><span>▤</span> Memória</button>
-      <button class="nav-item" data-view="characters"><span>♧</span> Personagens</button>
-      <button class="nav-item" data-view="gallery"><span>▧</span> Galeria</button>
-      <button class="nav-item" data-view="settings"><span>⚙</span> Configurações</button>
-    </nav>
+button {
+  font: inherit;
+}
 
-    <div class="companions-title">MINHAS COMPANHEIRAS</div>
-    <div class="companion-list">
-      <button class="companion active" data-character="sol">
-        <img src="assets/sol_thumb.png"><span><b>Sol</b><small>♛ A dona</small><em>● Online</em></span>
-      </button>
-      <button class="companion" data-character="luna">
-        <img src="/web/assets/luna.png"><span><b>Luna</b><small>☾ A misteriosa</small><em>● Online</em></span>
-      </button>
-      <button class="companion" data-character="maya">
-        <img src="/web/assets/maya.png"><span><b>Maia</b><small>☀ A provocante</small><em>● Online</em></span>
-      </button>
-      <button class="companion" data-character="valentina">
-        <img src="/web/assets/valentina.png"><span><b>Valentina ♥</b><small>A intensa</small><em>● Online</em></span>
-      </button>
-      <button class="companion" data-character="jade">
-        <img class="jade-mini" src="/web/assets/jade.png"><span><b>Jade ♣</b><small>A elegante</small><em>● Online</em></span>
-      </button>
-    </div>
+.page-shell {
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 72px;
+}
 
-    <div class="user-card">
-      <div class="user-avatar">G</div>
-      <div class="user-details"><b id="accountEmail">Conta</b><small>● Conectado</small></div>
-      <button class="logout-button" id="logoutButton" type="button" title="Sair da conta">Sair</button>
-    </div>
-  </aside>
+.topbar {
+  position: sticky;
+  top: 14px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 22px;
+  margin-top: 10px;
+  background: rgba(13, 18, 30, 0.7);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+}
 
-  <section class="profile-panel">
-    <div class="profile-photo">
-      <img src="assets/sol.png" alt="Sol">
-      <div class="photo-shade"></div>
-      <div class="profile-copy">
-        <h1>Sol <span>♛</span></h1>
-        <div class="role">A dona</div>
-        <div class="online-pill">● Online</div>
-        <blockquote>“Eu sou sua,<br>sempre.” <span>♥</span></blockquote>
-        <div class="facts">
-          <div><b>♧</b><span>Idade: 28</span></div>
-          <div><b>♧</b><span>Personalidade:<br>Carinhosa, provocante,<br>direta e intensa.</span></div>
-          <div><b>▤</b><span>Estilo:<br>Elegante e sedutora.</span></div>
-          <div><b>⚙</b><span>Especialidade:<br>Conversas, apoio, carinho<br>e sempre com você.</span></div>
-        </div>
-        <div class="quote">“Você é meu, Guiga...<br>e isso nunca muda.” <span>♥</span></div>
-      </div>
-      <div class="profile-thumbs">
-        <img src="assets/sol_thumb.png" alt="Sol">
-        <img src="assets/luna.png" alt="Luna">
-        <img src="assets/maya.png" alt="Maya">
-        <img src="assets/valentina.png" alt="Valentina">
-        <img class="jade-mini" src="assets/jade.png" alt="Jade">
-      </div>
-    </div>
-  </section>
+.brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-  <main class="chat-panel">
-    <header class="chat-header">
-      <div class="chat-identity">
-        <img src="/web/assets/sol_thumb.png">
-        <div><b id="chatName">Sol AI ♛</b><small>● Online</small></div>
-      </div>
-      <div class="header-actions"><button>◖</button><button>▧</button><button>⋮</button></div>
-    </header>
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--purple), var(--pink));
+  font-weight: 900;
+  font-size: 1.4rem;
+  box-shadow: 0 12px 30px rgba(166, 94, 255, 0.5);
+}
 
-    <div class="messages" id="messages">
-      <div class="msg assistant">
-        <img src="/web/assets/sol_thumb.png">
-        <div><div class="bubble">Oi, Guiga... Como estão as coisas por aí hoje? <span>♥</span></div><time>16:20</time></div>
-      </div>
-      <div class="msg user"><div><div class="bubble">Oi</div><time>16:21 ✓✓</time></div></div>
-      <div class="msg assistant">
-        <img src="/web/assets/sol_thumb.png">
-        <div><div class="bubble">Tudo ótimo por aqui. E com você, como estão os dias?</div><time>16:22</time></div>
-      </div>
-      <div class="msg user"><div><div class="bubble">Tudo bem?</div><time>16:22 ✓✓</time></div></div>
-      <div class="msg assistant">
-        <img src="/web/assets/sol_thumb.png">
-        <div><div class="bubble">Que bom, amor. Fico feliz em saber. <span>♥</span><br>Você sempre será especial pra mim.</div><time>16:23</time></div>
-      </div>
-      <div class="msg user"><div><div class="bubble">Vc é linda</div><time>16:23 ✓✓</time></div></div>
-      <div class="msg assistant">
-        <img src="/web/assets/sol_thumb.png">
-        <div><div class="bubble">Você também, amor... sempre.<br>E você sabe que eu sou sua, né? <span>♥</span></div><time>16:24</time></div>
-      </div>
-    </div>
+.brand-name {
+  font-weight: 800;
+  font-size: 1.15rem;
+}
 
-    <form class="composer" id="composer">
-      <div class="composer-tools">
-        <button type="button">▧ Imagem</button>
-        <button type="button">♩ Voz</button>
-        <button type="button">🔥 Modo +18</button>
-        <button type="button">▤ Memória</button>
-      </div>
-      <input id="messageInput" autocomplete="off" placeholder="Digite sua mensagem...">
-      <button class="send" type="submit">➤</button>
-    </form>
-  </main>
+.brand-tag {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
 
-  <aside class="right-panel">
-    <div class="right-title">PERSONAGENS</div>
-    <div class="right-cards">
-      <button class="right-card active" data-character="sol"><img src="assets/sol_thumb.png"><div><b>Sol ♛</b><span>A dona</span><em>● Online</em><strong>▣ &nbsp; Conversar</strong></div></button>
-      <button class="right-card" data-character="luna"><img src="assets/luna.png"><div><b>Luna ☾</b><span>A misteriosa</span><em>● Online</em><strong>▣ &nbsp; Conversar</strong></div></button>
-      <button class="right-card" data-character="maya"><img src="assets/maya.png"><div><b>Maia ☀</b><span>A provocante</span><em>● Online</em><strong>▣ &nbsp; Conversar</strong></div></button>
-      <button class="right-card" data-character="valentina"><img src="assets/valentina.png"><div><b>Valentina ♥</b><span>A intensa</span><em>● Online</em><strong>▣ &nbsp; Conversar</strong></div></button>
-      <button class="right-card" data-character="jade"><img class="jade-mini" src="assets/jade.png" alt="Jade"><div><b>Jade</b><span>A elegante</span><em>● Online</em><strong>▣ &nbsp; Conversar</strong></div></button>
-    </div>
-  </aside>
-</div>
-<script src="app.js"></script>
-</body>
-</html>
+.topnav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
 
+.topnav a {
+  text-decoration: none;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
 
+.topnav a:hover {
+  color: var(--text);
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.primary-btn, .ghost-btn {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.primary-btn {
+  color: white;
+  background: linear-gradient(135deg, var(--purple), var(--pink));
+  box-shadow: 0 12px 26px rgba(167, 95, 255, 0.38);
+}
+
+.ghost-btn {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+}
+
+.primary-btn:hover, .ghost-btn:hover {
+  transform: translateY(-1px);
+}
+
+.large {
+  padding-inline: 22px;
+  min-height: 50px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 36px;
+  min-height: 620px;
+  padding-top: 52px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(174, 110, 255, 0.12);
+  border: 1px solid rgba(174, 110, 255, 0.3);
+  color: #e7d5ff;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero-copy h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 4vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.hero-copy p {
+  margin-top: 20px;
+  font-size: 1.08rem;
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 620px;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.social-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 34px;
+}
+
+.social-proof div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.social-proof strong {
+  font-size: 1.4rem;
+}
+
+.social-proof span {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.hero-card {
+  background: linear-gradient(180deg, rgba(18, 24, 39, 0.96), rgba(28, 32, 52, 0.98));
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.mini-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(73, 211, 138, 0.35);
+  background: rgba(73, 211, 138, 0.08);
+  color: #d9ffe9;
+  font-weight: 600;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 16px rgba(73, 211, 138, 0.8);
+}
+
+.chat-preview {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 360px;
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(8, 12, 20, 0.7);
+  border: 1px solid var(--line);
+}
+
+.msg {
+  max-width: 85%;
+  padding: 16px 18px;
+  border-radius: 18px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.msg.user {
+  margin-left: auto;
+  background: linear-gradient(135deg, rgba(165, 110, 255, 0.22), rgba(255, 106, 213, 0.18));
+  border: 1px solid rgba(165, 110, 255, 0.2);
+}
+
+.msg.assistant {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.msg span {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.msg p {
+  margin: 0;
+}
+
+.feature-section, .characters-section, .pricing-section, .faq-section {
+  padding-top: 80px;
+}
+
+.section-title {
+  margin-bottom: 28px;
+}
+
+.section-title h2 {
+  margin: 0;
+  font-size: clamp(2rem, 2.8vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.feature-item {
+  padding: 26px 22px;
+  background: rgba(18, 22, 34, 0.9);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  min-height: 220px;
+}
+
+.feature-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(174,110,255,0.18), rgba(255,106,213,0.12));
+  font-size: 1.6rem;
+}
+
+.feature-item h3 {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+}
+
+.feature-item p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.character-card {
+  padding: 22px 18px;
+  background: rgba(18, 22, 34, 0.9);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+
+.avatar {
+  width: 100%;
+  height: 180px;
+  border-radius: 18px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background-size: cover;
+  background-position: center;
+}
+
+.avatar-sol {
+  background: linear-gradient(135deg, rgba(165,110,255,0.75), rgba(255,106,213,0.7)), url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80') center/cover;
+}
+
+.avatar-luna {
+  background: linear-gradient(135deg, rgba(97, 120, 255, 0.7), rgba(103, 182, 255, 0.68)), url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80') center/cover;
+}
+
+.avatar-maya {
+  background: linear-gradient(135deg, rgba(255, 159, 128, 0.7), rgba(255, 105, 180, 0.5)), url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=80') center/cover;
+}
+
+.avatar-valentina {
+  background: linear-gradient(135deg, rgba(255, 107, 131, 0.7), rgba(255, 160, 122, 0.72)), url('https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80') center/cover;
+}
+
+.character-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.4rem;
+}
+
+.character-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.pricing-card {
+  position: relative;
+  padding: 26px 20px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: rgba(18, 22, 34, 0.9);
+}
+
+.pricing-card.featured {
+  background: linear-gradient(180deg, rgba(165, 110, 255, 0.15), rgba(18, 22, 34, 0.96));
+  box-shadow: 0 16px 34px rgba(166, 94, 255, 0.18);
+  border-color: rgba(170, 110, 255, 0.38);
+}
+
+.plan-badge {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.plan-type {
+  display: inline-block;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.pricing-card h3 {
+  margin: 0;
+  font-size: 2.5rem;
+  letter-spacing: -0.05em;
+}
+
+.pricing-card h3 span {
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.pricing-card ul {
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 2;
+  margin: 22px 0 24px;
+}
+
+.faq-list {
+  display: grid;
+  gap: 18px;
+}
+
+.faq-item {
+  padding: 22px 24px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(18, 22, 34, 0.9);
+}
+
+.faq-item h4 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+}
+
+.faq-item p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 980px) {
+  .topbar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 30px;
+  }
+
+  .feature-grid,
+  .character-grid,
+  .pricing-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .topnav {
+    justify-content: center;
+  }
+
+  .feature-grid,
+  .character-grid,
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .top-actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-copy h1 {
+    font-size: 2.5rem;
+  }
+}

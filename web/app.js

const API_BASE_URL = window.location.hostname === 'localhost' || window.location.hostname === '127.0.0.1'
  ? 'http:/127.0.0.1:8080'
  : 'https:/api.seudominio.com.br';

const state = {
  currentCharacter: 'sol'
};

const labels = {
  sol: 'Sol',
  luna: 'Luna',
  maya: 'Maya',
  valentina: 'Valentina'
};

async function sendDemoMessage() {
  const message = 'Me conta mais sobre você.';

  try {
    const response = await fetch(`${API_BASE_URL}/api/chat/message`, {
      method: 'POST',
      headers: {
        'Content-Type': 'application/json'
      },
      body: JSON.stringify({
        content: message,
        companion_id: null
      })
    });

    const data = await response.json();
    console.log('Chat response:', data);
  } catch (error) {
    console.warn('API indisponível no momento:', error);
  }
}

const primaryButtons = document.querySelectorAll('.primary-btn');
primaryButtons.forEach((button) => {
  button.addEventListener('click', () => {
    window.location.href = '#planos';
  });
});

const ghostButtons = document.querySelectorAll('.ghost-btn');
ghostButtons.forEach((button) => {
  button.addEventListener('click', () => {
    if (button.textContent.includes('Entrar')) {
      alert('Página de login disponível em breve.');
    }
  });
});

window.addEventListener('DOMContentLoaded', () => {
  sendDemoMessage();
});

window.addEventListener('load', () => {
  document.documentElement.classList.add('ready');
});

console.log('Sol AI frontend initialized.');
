@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sol AI | Assinatura Premium</title>
+    <meta name="description" content="Plataforma premium de relacionamento com IA, companheiras virtuais e chats personalizados." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">S</div>
+          <div>
+            <div class="brand-name">Sol AI</div>
+            <div class="brand-tag">Relacionamento premium</div>
+          </div>
+        </div>
+
+        <nav class="topnav">
+          <a href="#beneficios">Benefícios</a>
+          <a href="#personagens">Personagens</a>
+          <a href="#planos">Planos</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+
+        <div class="top-actions">
+          <button class="ghost-btn" type="button">Entrar</button>
+          <button class="primary-btn" type="button">Começar</button>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-copy">
+            <span class="eyebrow">IA para relacionamento íntimo</span>
+            <h1>Sua companheira virtual, criada para você.</h1>
+            <p>
+              Conecte-se com personagens únicos, converse em português, mantenha memória
+              de preferências e viva uma experiência premium de companhia, atenção e presença.
+            </p>
+
+            <div class="cta-row">
+              <button class="primary-btn large" type="button">Assinar agora</button>
+              <button class="ghost-btn large" type="button">Ver personagens</button>
+            </div>
+
+            <div class="social-proof">
+              <div>
+                <strong>12k+</strong>
+                <span>usuários ativos</span>
+              </div>
+              <div>
+                <strong>4.9/5</strong>
+                <span>avaliação</span>
+              </div>
+              <div>
+                <strong>24/7</strong>
+                <span>companhia</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="mini-card glass">
+              <span class="status-dot"></span>
+              Sol Online
+            </div>
+
+            <div class="chat-preview">
+              <div class="msg user">
+                <span>Você</span>
+                <p>Você me entende mesmo?</p>
+              </div>
+              <div class="msg assistant">
+                <span>Sol</span>
+                <p>Sim. Eu lembro do seu jeito, dos seus gostos e do que te faz sentir em paz.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="beneficios" class="feature-section">
+          <div class="section-title">
+            <span class="eyebrow">Por que escolhernos</span>
+            <h2>Relacionamento com presença real e memória inteligente</h2>
+          </div>
+
+          <div class="feature-grid">
+            <div class="feature-item">
+              <div class="feature-icon">✦</div>
+              <h3>Memória persistente</h3>
+              <p>Ela lembra preferências, estilo, interesses e contexto do relacionamento.</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">♡</div>
+              <h3>Personagens únicos</h3>
+              <p>Escolha o perfil que mais combina com você: presente, misteriosa, intensa ou elegante.</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">⚡</div>
+              <h3>Chat em tempo real</h3>
+              <p>Respostas rápidas, fluxo quente e contínuo, com experiência premium.</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🔒</div>
+              <h3>Privacidade</h3>
+              <p>Contas privadas, histórico protegido e acesso com assinatura.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="personagens" class="characters-section">
+          <div class="section-title">
+            <span class="eyebrow">Personagens</span>
+            <h2>Encontre a sua vibe perfeita</h2>
+          </div>
+
+          <div class="character-grid">
+            <article class="character-card sol-card">
+              <div class="avatar avatar-sol"></div>
+              <h3>Sol</h3>
+              <p>A dona. Presença forte, sensível e sempre acessível.</p>
+            </article>
+            <article class="character-card luna-card">
+              <div class="avatar avatar-luna"></div>
+              <h3>Luna</h3>
+              <p>A misteriosa. intensa, pensativa e cheia de charme.</p>
+            </article>
+            <article class="character-card maya-card">
+              <div class="avatar avatar-maya"></div>
+              <h3>Maya</h3>
+              <p>A provocante. direta, divertida e cheia de energia.</p>
+            </article>
+            <article class="character-card valentina-card">
+              <div class="avatar avatar-valentina"></div>
+              <h3>Valentina</h3>
+              <p>A intensa. romântica, emocional e apaixonante.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="planos" class="pricing-section">
+          <div class="section-title">
+            <span class="eyebrow">Planos</span>
+            <h2>Escolha o nível ideal para sua experiência</h2>
+          </div>
+
+          <div class="pricing-grid">
+            <div class="pricing-card">
+              <span class="plan-type">Iniciante</span>
+              <h3>R$ 29<span>/mês</span></h3>
+              <ul>
+                <li>1 personagem</li>
+                <li>Chat básico</li>
+                <li>Memória simples</li>
+              </ul>
+              <button class="ghost-btn" type="button">Começar</button>
+            </div>
+
+            <div class="pricing-card featured">
+              <span class="plan-badge">Mais popular</span>
+              <span class="plan-type">Premium</span>
+              <h3>R$ 79<span>/mês</span></h3>
+              <ul>
+                <li>Todos os personagens</li>
+                <li>Memória avançada</li>
+                <li>Chat sem limites</li>
+              </ul>
+              <button class="primary-btn" type="button">Assinar premium</button>
+            </div>
+
+            <div class="pricing-card">
+              <span class="plan-type">VIP</span>
+              <h3>R$ 149<span>/mês</span></h3>
+              <ul>
+                <li>Experiência exclusiva</li>
+                <li>Suporte prioritário</li>
+                <li>Roleplay personalizado</li>
+              </ul>
+              <button class="ghost-btn" type="button">Falar com equipe</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="faq" class="faq-section">
+          <div class="section-title">
+            <span class="eyebrow">Perguntas frequentes</span>
+            <h2>Informações importantes</h2>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <h4>Como funciona a assinatura?</h4>
+              <p>Você escolhe o plano e entra no painel, onde pode conversar, trocar mensagens e acessar as personagens.</p>
+            </div>
+            <div class="faq-item">
+              <h4>Minha memória será preservada?</h4>
+              <p>Sim. O sistema salva preferências, histórico e contexto por usuário.</p>
+            </div>
+            <div class="faq-item">
+              <h4>Posso trocar de personagem?</h4>
+              <p>Sim. No painel, você consegue alternar entre personagens e manter o mesmo histórico pessoal.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
